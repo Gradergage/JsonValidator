@@ -1,6 +1,6 @@
 # About this project
 
-You need to create a stateless-application with REST-interface for validation Json files.
+This is the stateless-application with REST-interface for validation Json files.
 
 **Requirements:**
 1) source code is hosted in the public git repository
