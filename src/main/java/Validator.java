@@ -48,10 +48,11 @@ public class Validator implements Server {
                                 "at " + errorSplittedString[2],
                                 jsonRequest,
                                 request_id
-                        ));
+                        )); 
             } finally {
-            }
-            request_id++;
+            	request_id++;
+           	}
+
             System.out.println("RESPONSE:" + jsonResponse);
             http.sendResponseHeaders(CODE_OK, jsonResponse.length());
             http.getResponseBody().write(jsonResponse.getBytes());
