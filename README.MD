@@ -2,16 +2,16 @@
 
 You need to create a stateless-application with REST-interface for validation Json files.
 
-?Requirements: *
+**Requirements:**
 1) source code is hosted in the public git repository
 2) the project runs in the Docker directly from the repository
 3) a service running in the Docker does not store state
 
-*Non-functional requirements:*
+**Non-functional requirements:**
 1) Strictly follow the Java Convention when naming classes, methods, and the formation of Java doc
 2) To conduct development iteratively, i.e. make commits in git as the new feature is implemented.
 
-*Samples:*
+**Samples:**
 Run container with service:
 
 `docker run -d -p 80:80 github.com/username/projectname`
