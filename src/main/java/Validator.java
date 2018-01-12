@@ -4,6 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.net.InetSocketAddress;
+import java.net.URI;
+import java.net.URL;
 import java.util.stream.Collectors;
 
 /**
@@ -31,11 +33,15 @@ public class Validator implements Server {
         this.builder = new GsonBuilder().setPrettyPrinting().create();
         this.server = HttpServer.create(new InetSocketAddress(PORT), 0);
         this.server.createContext(ROOT, http -> {
-		int request_id=0;
+		int requestId=0;
             InputStreamReader input = new InputStreamReader(http.getRequestBody());
+            URI inputURI = http.getRequestURI();
+            String fileURL = inputURI.getPath();
+            fileURL = fileURL.substring(1,fileURL.length());
             final String jsonRequest = new BufferedReader(input).lines().collect(Collectors.joining());
             System.out.println("REQUEST:" + jsonRequest);
             String jsonResponse;
+            
             try {
                 Object object = builder.fromJson(jsonRequest, Object.class);
                 jsonResponse = builder.toJson(object);
@@ -46,13 +52,13 @@ public class Validator implements Server {
                                 e.hashCode(),
                                 errorSplittedString[1],
                                 "at " + errorSplittedString[2],
-                                jsonRequest,
-                                request_id
+                                fileURL,
+                                requestId
                         )); 
             } finally {
-            	request_id++;
+            	requestId++;
            	}
-
+			
             System.out.println("RESPONSE:" + jsonResponse);
             http.sendResponseHeaders(CODE_OK, jsonResponse.length());
             http.getResponseBody().write(jsonResponse.getBytes());
