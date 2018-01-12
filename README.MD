@@ -15,7 +15,7 @@ This is the stateless-application with REST-interface for validation Json files.
 
 Run container with service:
 
-`docker run -d -p 80:80 github.com/username/projectname`
+`docker run -d -p 80:80 github.com/gradergage/jsonvalidator.git`
 
 Send file to validation:
 
