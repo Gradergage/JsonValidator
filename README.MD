@@ -12,13 +12,14 @@ This is the stateless-application with REST-interface for validation Json files.
 2) To conduct development iteratively, i.e. make commits in git as the new feature is implemented.
 
 **Samples:**
+
 Build image with Gradle:
 
 `sudo bash gradlew createDockerImage`
 
 Run container with service:
 
-`docker run -d -p 80:80 github.com/gradergage/jsonvalidator.git`
+`docker run -d -p 80:80 Validator`
 
 Send file to validation:
 
