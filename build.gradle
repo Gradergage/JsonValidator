@@ -51,4 +51,5 @@ repositories {
 
 dependencies {
    compile 'com.google.code.gson:gson:2.8.2'
+   compile 'org.jetbrains:annotations:13.0'
 }
