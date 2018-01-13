@@ -46,6 +46,7 @@ task createDockerImage(type: DockerBuildImage) {
 
 repositories {
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
