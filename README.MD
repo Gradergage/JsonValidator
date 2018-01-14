@@ -15,7 +15,7 @@ This is the stateless-application with REST-interface for validation Json files.
 
 Build image with Gradle:
 
-`sudo bash gradlew createDockerImage`
+`[sudo] ./ gradlew createDockerImage`
 
 Run container with service:
 

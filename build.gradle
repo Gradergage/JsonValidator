@@ -41,7 +41,7 @@ task createDockerImage(type: DockerBuildImage) {
     dependsOn fatJar
     dependsOn createDockerfile
     inputDir = createDockerfile.destFile.parentFile
-    tag = 'validator'
+    tag = 'Validator'
 }
 
 repositories {
