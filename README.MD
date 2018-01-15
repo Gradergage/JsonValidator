@@ -19,7 +19,7 @@ Build image with Gradle:
 
 Run container with service:
 
-`docker run -d -p 80:80 Validator`
+`docker run -d -p 80:80 validator`
 
 Send file to validation:
 
