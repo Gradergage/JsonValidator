@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Step 1 - Build') {
             steps {
-                sh 'git clone github.com/Gradergage/JsonValidator'
+                sh 'git clone https://github.com/Gradergage/JsonValidator'
                 echo 'Step 1 executed, Pokatilo P.A.'
             }
         }
