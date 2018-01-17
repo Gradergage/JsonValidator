@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'validation-service' } 
+    agent any
     stages {
         stage('Step 1 - Build') {
             steps {
