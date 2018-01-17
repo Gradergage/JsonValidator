@@ -1,18 +1,22 @@
 pipeline {
-	tools {
-	     gradle "gradle-xx"
-	}
     agent { docker 'validator' } 
     stages {
-        stage('Step 1') {
+        stage('Step 1 - Build') {
             steps {
+                sh 'docker build -t validation-service github.com/Yehuk/json_validator'
                 echo 'Step 1 executed, Pokatilo P.A.'
             }
         }
-        stage('Step 2') {
+        stage('Step 2 - docker run') {
             steps {
+                sh 'docker run -d --rm -p 80:80 validation-service'
                 echo 'Step 2 executed, Pokatilo P.A.'
-                bash gradlew createDockerImage
+            }
+        }
+        stage('Step 3 - info') {
+            steps {
+                echo 'Step 3 executed, Pokatilo P.A.'
+                echo 'To validate file use: curl -s --upload-file filename.json http://localhost'
             }
         }
     }
